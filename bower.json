@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "homepage": "https://github.com/PaySavvy/immutable-angular",
   "authors": [
-    "Halfdan Hem <halfdanhem@gmail.com>"
+    "Halfdan Hem <halfdanhem@gmail.com>", "Tim Abdulla <tim@paysavvy.com>"
   ],
   "description": "A set of angular helpers to better use Immutable.js in angular applications",
   "main": "immutable-angular.js",
