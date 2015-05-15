@@ -2,7 +2,21 @@
 
 Immutable Angular is a set of helpers to allow better interaction between [Immutable.js](https://github.com/facebook/immutable-js) and Angular, to be used with more than just primitive data, and to allow for more complex use cases.
 
+
+
 # Demo
+
+### Install
+
+```
+bower install immutable-angular --save
+```
+
+Include 'mutable' in your apps dependencies
+
+```javascript
+var sampleApp = angular.module('sampleApp', ['mutable']);
+```
 
 ## Using Immutable Collections in ng-repeat
 
