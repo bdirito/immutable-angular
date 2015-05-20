@@ -6,7 +6,7 @@
     function toMutable(js) {
       return js.toJS();
     };
-    var memoizedMutable = memoize(toMutable);
+    var memoizedMutable = memoize(toMutable, 10);
 
     return function (val) {
       if (val instanceof Immutable.Collection) {

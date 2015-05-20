@@ -1,0 +1,6 @@
+languages:
+  JavaScript: true
+  HTML: true
+exclude_paths:
+- "immutable.js"
+- "scripts/immutable.jsx"
