@@ -4,7 +4,7 @@
 
   var mutableFilter = function mutableFilter() {
     function toMutable(js) {
-      return js.toJS();
+      return js.toArray();
     };
     var memoizedMutable = memoize(toMutable, 10);
 

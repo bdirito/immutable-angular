@@ -39,4 +39,10 @@ describe('ImmutableFilter:', function(){
     var emptyMutableArray = mutableFilter(emptyImmutableArray);
     expect(emptyMutableArray).toBe(mutableFilter(emptyImmutableArray));
   })
+
+  it("mutable filter only shallow converts the array", function(){
+    var arrayNestedObjects = Immutable.fromJS([{hello:90, gUnit: 42}])
+    console.log(mutableFilter(arrayNestedObjects))
+    expect(mutableFilter(arrayNestedObjects)[0].get("hello")).toEqual(90)
+  })
 });
