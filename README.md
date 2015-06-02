@@ -34,7 +34,7 @@ sampleApp.controller('SampleCtrl', SampleCtrl);
 <body ng-app="sampleApp" ng-controller="SampleCtrl">
 <ul>
   <li ng-repeat="viking in list | mutable">
-    {{viking.name}}
+    {{viking.get('name')}}
   </li>
 </ul>
 <script src="/javascripts.js"></script>
