@@ -16,6 +16,20 @@
     };
   };
 
+  var toJS = function toJS() {
+    function toMutable(js) {
+      return js.toJS()
+    };
+    var memoizedMutable = memoize(toMutable, 10);
+
+    return function (val) {
+      if (val instanceof Immutable.Collection) {
+        return memoizedMutable(val);
+      }
+      return val;
+    };
+  };
+
   var immutableDirective = function ($parse) {
     return {
       restrict: "EA",
@@ -49,5 +63,6 @@
 
   angular.module("mutable", [])
     .filter("mutable", [mutableFilter])
+    .filter("toJS", [toJS])
     .directive("immutable", ["$parse", immutableDirective]);
 })();
