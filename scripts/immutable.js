@@ -9,7 +9,7 @@
     var memoizedMutable = memoize(toMutable, 10);
 
     return function (val) {
-      if (val instanceof Immutable.Collection) {
+      if (val && typeof val.toArray === "function"){
         return memoizedMutable(val);
       }
       return val;
@@ -23,7 +23,7 @@
     var memoizedMutable = memoize(toMutable, 10);
 
     return function (val) {
-      if (val instanceof Immutable.Collection) {
+      if (val && typeof val.toJS === "function"){
         return memoizedMutable(val);
       }
       return val;
