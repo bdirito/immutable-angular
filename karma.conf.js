@@ -22,6 +22,7 @@ module.exports = function(config) {
 
       // Test specific files
       'spec/immutable-spec.js',
+      'spec/memoize-filter-spec.js',
       'bower_components/angular-mocks/angular-mocks.js',
 
     ],

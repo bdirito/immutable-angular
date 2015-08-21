@@ -1882,8 +1882,14 @@ module.exports = function self(fn/*, options */) {
 (function () {
   "use strict";
   var memoize = require('memoizee');
+  
+  angular.module("mutable", [])
+    .filter("mutable", [mutableFilter])
+    .filter("toJS", [toJS])
+    .filter("memoize", [memoizeFilter])
+    .directive("immutable", ["$parse", immutableDirective]);
 
-  var mutableFilter = function mutableFilter() {
+  function mutableFilter() {
     function toMutable(js) {
       return js.toArray();
     };
@@ -1897,7 +1903,7 @@ module.exports = function self(fn/*, options */) {
     };
   };
 
-  var toJS = function toJS() {
+  function toJS() {
     function toMutable(js) {
       return js.toJS()
     };
@@ -1911,7 +1917,7 @@ module.exports = function self(fn/*, options */) {
     };
   };
 
-  var immutableDirective = function ($parse) {
+  function immutableDirective ($parse) {
     return {
       restrict: "EA",
       link: function link(scope, element, attrs) {
@@ -1942,9 +1948,18 @@ module.exports = function self(fn/*, options */) {
     };
   };
 
-  angular.module("mutable", [])
-    .filter("mutable", [mutableFilter])
-    .filter("toJS", [toJS])
-    .directive("immutable", ["$parse", immutableDirective]);
+  function memoizeFilter(){
+    
+    function memoizer(input){
+      return input;
+    }
+    var memoizedMemoizer = memoize(memoizer, 10);
+    
+    return function(toBeMemoized){
+      return memoizedMemoizer(toBeMemoized);
+    }
+  }
+
+  
 })();
 },{"memoizee":7}]},{},[62]);
