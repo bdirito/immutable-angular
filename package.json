@@ -5,7 +5,6 @@
   "main": "immutable.js",
   "scripts": {
     "test": "grunt karma:unit",
-    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
