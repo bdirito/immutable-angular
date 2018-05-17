@@ -4,7 +4,7 @@
   "description": "A set of angular helpers to better use Immutable.js in angular applications",
   "main": "immutable.js",
   "scripts": {
-    "test": "grunt karma:unit",
+    "test": "grunt karma:unit"
   },
   "repository": {
     "type": "git",
